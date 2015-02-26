@@ -87,7 +87,7 @@ module MoneyRails
             #
             # To disable validation entirely, use :disable_validation, E.g:
             #   monetize :price_in_a_range_cents, :disable_validation => true
-            if validation_enabled = MoneyRails.include_validations && !options[:disable_validation]
+            if validation_enabled = (options[:enable_validation] || MoneyRails.include_validations) && !options[:disable_validation]
 
               subunit_validation_options =
               unless options.has_key? :subunit_numericality
